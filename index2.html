@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Checker</title>
+    <style>
+        .container{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: darkgray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            padding: 15px;
+            width: 30%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.598);
+            border-radius: 10px;
+            
+        }
+        form div {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        button{
+            border-radius: 20px;
+            padding: 10px 18px;
+            border: none;
+            background-color: dimgrey;
+            color: white;
+            font-weight: bold;
+        }
+        select{
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            margin: 3px 0;
+            outline: none;
+        }
+        input{
+            outline: none;
+            margin: 3px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.472);
+        }
+        .a{
+            width: 62.5%;
+        }
+        .b{
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="status">
+            <input type="text" class="a" name="name" id="name" placeholder="Full name" required>
+
+            <input type="text" class="b" name="dob" id="dob" placeholder="Age" required><br>
+
+            <select name="phone" id="phone" required>
+                <option value="">-- Select phone --</option>
+                <option value="big">iPhone</option>
+                <option value="big">Samsung</option>
+                <option value="big">Google pixel</option>
+                <option value="medium">Redmi</option>
+                <option value="medium">Oppo</option>
+                <option value="small">Tecno</option>
+                <option value="small">Infinix</option>
+                <option value="small">Itel</option>
+                <option value="small">Nokia</option>
+            </select><br>
+
+            <select name="car" id="car" required>
+                <option value="">-- Select car --</option>
+                <option value="big">Rolls Royce</option>
+                <option value="big">Bently</option>
+                <option value="big">Ferrari</option>
+                <option value="big">Lamborghini</option>
+                <option value="medium">Range Rover - 2016 and Below</option>
+                <option value="medium">Benz - 2016 and Below</option>
+                <option value="small">Toyota</option>
+                <option value="small">Genesis</option>
+            </select><br>
+
+            <div><button onclick="checkStatus()">Check Status</button></div>
+        </form>
+
+        <div class="status"></div>
+    </div>
+
+    <script type="text/javascript">
+        function checkStatus() {
+            let name = document.getElementById("name").value;
+            let dob = document.getElementById("dob").value;
+            let phone = document.getElementById("phone").value;
+            let car = document.getElementById("car").value;
+            let status = document.getElementById("status");
+
+            // Big phone, big car and different ages
+            if (phone == "big" && car == "big" && dob >= "60") {
+                status.innerHTML = `<p>Dear ${name}, you are a sucessful politician.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "big" && dob >= "40" && dob <= "59") {
+                status.innerHTML = `<p>Dear ${name}, you are a drug lord.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "big" && dob >= "30" && dob <= "39") {
+                status.innerHTML = `<p>Dear ${name}, you are a businessman.</p>
+                <button onclick="location.reload()">Okay</button>;`
+            } else if (phone == "big" && car == "big" && dob >= "20" && dob <= "29") {
+                status.innerHTML = `<p>Dear ${name}, you are a Forex Trader.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "big" && dob >= "0" && dob <= "19") {
+                status.innerHTML = `<p>Dear ${name}, you are a fraudster. Confirm one ni oo. <i>EFCC Calling</i></p><button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "medium" && dob >= "60") {  //Big phone, medium car and different age
+                status.innerHTML = `<p>Dear ${name}, you are a retired civil servant.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "medium" && dob >= "40" && dob <= "59") {
+                status.innerHTML = `<p>Dear ${name}, you are an average politician who's targeting Nigeria top seat.</p><button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "medium" && dob >= "30" && dob <= "39") {
+                status.innerHTML = `<p>Dear ${name}, you are a hustler who's gotten some taste of igbadun.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "medium" && dob >= "20" && dob <= "29") {
+                status.innerHTML = `<p>Dear ${name}, you are a hustler.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "medium" && dob >= "0" && dob <= "19") {
+                status.innerHTML = `<p>Dear ${name}, you are a fraudster.<i>EFCC Calling</i></p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "small" && dob >= "60") {  //Big phone, small car and different age
+                status.innerHTML = `<p>Dear ${name}, you are a retired civil servant.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "small" && dob >= "40" && dob <= "59") {
+                status.innerHTML = `<p>Dear ${name}, you are a civil servant.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "small" && dob >= "30" && dob <= "39") {
+                status.innerHTML = `<p>Dear ${name}, you are a average Nigeria man.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "small" && dob >= "20" && dob <= "29") {
+                status.innerHTML = `<p>Dear ${name}, you are a hustler who likes to show.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "big" && car == "small" && dob >= "0" && dob <= "19") {
+                status.innerHTML = `<p>Dear ${name}, you are a fraudster.<i>EFCC Calling.</i></p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "big" && dob >= "60") {  //medium phone, big car and different age
+                status.innerHTML = `<p>Dear ${name}, you are a politician. But why are you using small phone upon all Nigeria's money you embezzled?</p><button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "big" && dob >= "40" && dob <= "59") {
+                status.innerHTML = `<p>Dear ${name}, you are a businessman.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "big" && dob >= "30" && dob <= "39") {
+                status.innerHTML = `<p>Dear ${name}, you are a drug lord.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "big" && dob >= "20" && dob <= "29") {
+                status.innerHTML = `<p>Dear ${name}, you are a hustler.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "big" && dob >= "0" && dob <= "19") {
+                status.innerHTML = `<p>Dear ${name}, you are an international fraudster. <i>FBI Calling.</i></p><button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "medium" && dob >= "60") {  //medium phone, medium car and different age
+                status.innerHTML = `<p>Dear ${name}, you are a retired medium level civil servant.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "medium" && dob >= "40" && dob <= "59") {
+                status.innerHTML = `<p>Dear ${name}, you are a business man but you never really make am.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "medium" && dob >= "30" && dob <= "39") {
+                status.innerHTML = `<p>Dear ${name}, you are an average Nigerian citizen.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "medium" && dob >= "20" && dob <= "29") {
+                status.innerHTML = `<p>Dear ${name}, you are a Hustler.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "medium" && dob >= "0" && dob <= "19") {
+                status.innerHTML = `<p>Dear ${name}, you are a fraudster. <i>EFCC Calling</i></p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "small" && dob >= "60") {  //medium phone, small car and different age
+                status.innerHTML = `<p>Dear ${name}, you are a ordinary Nigerian citizen.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "small" && dob >= "40" && dob <= "59") {
+                status.innerHTML = `<p>Dear ${name}, you are an ordinary Nigerian citizen.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "small" && dob >= "30" && dob <= "39") {
+                status.innerHTML = `<p>Dear ${name}, you are a civil servant.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "small" && dob >= "20" && dob <= "29") {
+                status.innerHTML = `<p>Dear ${name}, you are a Hustler. E go be. Better days ahead.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "medium" && car == "small" && dob >= "0" && dob <= "19") {
+                status.innerHTML = `<p>Dear ${name}, you suppose be tiktoker oo but i no gree, you be fraudster. <i>EFCC Calling.</i></p><button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "big" && dob >= "60") {  //small phone, big car and different age
+                status.innerHTML = `<p>Dear ${name}, you are a businessman.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "big" && dob >= "40" && dob <= "59") {
+                status.innerHTML = `<p>Dear ${name}, you are a businessman.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "big" && dob >= "30" && dob <= "39") {
+                status.innerHTML = `<p>Dear ${name}, you are a druglord.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "big" && dob >= "20" && dob <= "29") {
+                status.innerHTML = `<p>Dear ${name}, you are a fraudster.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "big" && dob >= "0" && dob <= "19") {
+                status.innerHTML = `<p>Dear ${name}, you are a fraudster.<i>EFCC Calling.</i></p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "medium" && dob >= "60") {  //small phone, medium car and different age
+                status.innerHTML = `<p>Dear ${name}, you are a retired high level civil servant.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "medium" && dob >= "40" && dob <= "59") {
+                status.innerHTML = `<p>Dear ${name}, you are a high level civil servant.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "medium" && dob >= "30" && dob <= "39") {
+                status.innerHTML = `<p>Dear ${name}, you are an errand boy for drug lords.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "medium" && dob >= "20" && dob <= "29") {
+                status.innerHTML = `<p>Dear ${name}, you are a hustler. Better days ahead</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "medium" && dob >= "0" && dob <= "19") {
+                status.innerHTML = `<p>Dear ${name}, you are a fraudster.<i>EFCC Calling.</i></p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "small" && dob >= "60") {  //small phone, small car and different age
+                status.innerHTML = `<p>Dear ${name}, you are an average Nigerian citizen.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "small" && dob >= "40" && dob <= "59") {
+                status.innerHTML = `<p>Dear ${name}, you are an average low level Nigerian civil servant.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "small" && dob >= "30" && dob <= "39") {
+                status.innerHTML = `<p>Dear ${name}, you are an average low level Nigerian civil servant.</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "small" && dob >= "20" && dob <= "29") {
+                status.innerHTML = `<p>Dear ${name}, Keep grinding. Better days ahead</p>
+                <button onclick="location.reload()">Okay</button>`;
+            } else if (phone == "small" && car == "small" && dob >= "0" && dob <= "19") {
+                status.innerHTML = `<p>Wait ${name}, How you take get phone and car at your age? <i>EFCC Calling</i></p><button onclick="location.reload()">Okay</button>`;
+            }
+        }
+    </script>
+</body>
+</html>
